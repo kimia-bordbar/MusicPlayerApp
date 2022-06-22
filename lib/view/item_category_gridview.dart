@@ -57,7 +57,7 @@ class ItemCategoryGridView extends StatelessWidget {
           ),
         ),
         onTap: () {
-          Get.to(() => CategoryDetailScreen(catId: catId));
+          Get.to(() => CategoryDetailScreen(catId: catId,catName: catTitle,));
         },
       ),
     );

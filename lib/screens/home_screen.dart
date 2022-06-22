@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -42,6 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Padding(
         padding: const EdgeInsets.all(12.0),
         child: RefreshIndicator(
+          color: Theme.of(context).colorScheme.copyWith().secondary,
           onRefresh: () async {
             await Future.delayed(const Duration(milliseconds: 1500));
             setState(() {
@@ -81,7 +80,13 @@ class _HomeScreenState extends State<HomeScreen> {
                         return const Text(
                             'از اتصال دستگاه خود به اینترنت اطمینان حاصل شوید.');
                       } else {
-                        return const Center(child: CircularProgressIndicator());
+                        return Center(
+                          child: CircularProgressIndicator(
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .copyWith()
+                                  .secondary),
+                        );
                       }
                     }),
               ),
@@ -111,7 +116,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           itemCount: snapshot.data!.ONLINE_MP3.length,
                           itemBuilder: (context, index) {
                             return ItemSongListView(
-                              songId:snapshot.data!.ONLINE_MP3[index].id,
+                              songId: snapshot.data!.ONLINE_MP3[index].id,
                               songName:
                                   snapshot.data!.ONLINE_MP3[index].mp3_title,
                               artistName:
@@ -125,7 +130,14 @@ class _HomeScreenState extends State<HomeScreen> {
                         return const Text(
                             'از اتصال دستگاه خود به اینترنت اطمینان حاصل شوید.');
                       } else {
-                        return const Center(child: CircularProgressIndicator());
+                        return Center(
+                          child: CircularProgressIndicator(
+                            color: Theme.of(context)
+                                .colorScheme
+                                .copyWith()
+                                .secondary,
+                          ),
+                        );
                       }
                     },
                   ),
@@ -169,7 +181,13 @@ class _HomeScreenState extends State<HomeScreen> {
                         return const Text(
                             'از اتصال دستگاه خود به اینترنت اطمینان حاصل شوید.');
                       } else {
-                        return const Center(child: CircularProgressIndicator());
+                        return Center(
+                            child: CircularProgressIndicator(
+                          color: Theme.of(context)
+                              .colorScheme
+                              .copyWith()
+                              .secondary,
+                        ));
                       }
                     }),
               ),

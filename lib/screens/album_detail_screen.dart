@@ -105,8 +105,9 @@ class _AlbumDetailScreenState extends State<AlbumDetailScreen> {
                   return const Text(
                       'از اتصال دستگاه خود به اینترنت اطمینان حاصل شوید.');
                 } else {
-                  return const Center(
-                    child: CircularProgressIndicator(),
+                  return  Center(
+                    child: CircularProgressIndicator(color:
+                            Theme.of(context).colorScheme.copyWith().secondary,),
                   );
                 }
               },
