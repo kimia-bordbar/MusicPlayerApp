@@ -37,7 +37,6 @@ class _DashboardState extends State<Dashboard> {
         ),
         body: items.elementAt(_currentIndex),
         bottomNavigationBar: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
           items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.home_rounded),
