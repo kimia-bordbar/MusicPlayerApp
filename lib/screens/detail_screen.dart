@@ -20,7 +20,7 @@ class _DetailScreenState extends State<DetailScreen> {
     var client = RestClient(dio);
     late Future<SongBaseModel> getSingleSong;
 
-    getSingleSong = client.getSingleSongs(widget.songId);
+    getSingleSong = client.getSingleSong(widget.songId);
 
     return Scaffold(
       appBar: AppBar(),
@@ -101,10 +101,8 @@ class _DetailScreenState extends State<DetailScreen> {
                   return const Text(
                       'از اتصال دستگاه خود به اینترنت اطمینان حاصل شوید.');
                 } else {
-                  return Center(
-                    child: CircularProgressIndicator(
-                      color: Theme.of(context).colorScheme.copyWith().secondary,
-                    ),
+                  return const Center(
+                    child: CircularProgressIndicator(),
                   );
                 }
               },

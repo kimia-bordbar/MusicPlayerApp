@@ -29,7 +29,7 @@ class ItemSong extends StatelessWidget {
           height: 90,
           width: double.infinity,
           child: Padding(
-            padding: const EdgeInsets.all(4.0),
+            padding: const EdgeInsets.all(8.0),
             child: Row(
               children: [
                 ClipRRect(
@@ -73,7 +73,7 @@ class ItemSong extends StatelessWidget {
           ),
         ),
         onTap: () {
-          Get.to(() => DetailScreen(songId: songId));
+          Get.to(DetailScreen(songId: songId));
         },
       ),
     );

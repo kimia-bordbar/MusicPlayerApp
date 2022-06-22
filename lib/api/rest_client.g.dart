@@ -98,22 +98,6 @@ class _RestClient implements RestClient {
   }
 
   @override
-  Future<PlaylistBaseModel> getPlaylist() async {
-    const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<PlaylistBaseModel>(
-            Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options, 'api.php?playlist',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = PlaylistBaseModel.fromJson(_result.data!);
-    return value;
-  }
-
-  @override
   Future<SongBaseModel> getArtistsSongs(id) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -162,7 +146,7 @@ class _RestClient implements RestClient {
   }
 
   @override
-  Future<SongBaseModel> getSingleSongs(id) async {
+  Future<SongBaseModel> getSingleSong(id) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -178,7 +162,7 @@ class _RestClient implements RestClient {
   }
 
   @override
-  Future<SongBaseModel> getSearchSongs(id) async {
+  Future<SongBaseModel> getSearchSong(id) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -190,22 +174,6 @@ class _RestClient implements RestClient {
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = SongBaseModel.fromJson(_result.data!);
-    return value;
-  }
-
-  @override
-  Future<PlaylistsSongsBaseModel> getPlayListsSongs(id) async {
-    const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<PlaylistsSongsBaseModel>(
-            Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options, 'api.php?playlist_id=${id}',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = PlaylistsSongsBaseModel.fromJson(_result.data!);
     return value;
   }
 

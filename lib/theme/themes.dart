@@ -8,7 +8,7 @@ class Themes {
       secondary: Colors.white,
       primary: Colors.black,
     ),
-    appBarTheme: AppBarTheme(
+    appBarTheme:  AppBarTheme(
       backgroundColor: Colors.black,
       elevation: 8.0,
       shadowColor: Colors.white30,
@@ -19,7 +19,7 @@ class Themes {
         fontWeight: FontWeight.bold,
       ),
     ),
-    textTheme: TextTheme(
+    textTheme:  TextTheme(
       headline6: GoogleFonts.sourceSansPro(
         fontSize: 20.0,
         color: Colors.white,
@@ -38,7 +38,6 @@ class Themes {
     ),
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       elevation: 8.0,
-      type: BottomNavigationBarType.fixed,
       selectedItemColor: Colors.white,
       unselectedItemColor: Colors.white54,
       backgroundColor: Colors.black,

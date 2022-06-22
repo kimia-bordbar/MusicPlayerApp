@@ -7,11 +7,9 @@ import 'package:music_player/view/item_song.dart';
 
 class CategoryDetailScreen extends StatefulWidget {
   final String catId;
-  final String catName;
   const CategoryDetailScreen({
     Key? key,
     required this.catId,
-    required this.catName,
   }) : super(key: key);
 
   @override
@@ -28,7 +26,7 @@ class _CategoryDetailScreenState extends State<CategoryDetailScreen> {
 
     getCategoriesSongs = client.getCategoriesSongs(widget.catId);
     return Scaffold(
-      appBar: AppBar(title: Text(widget.catName),),
+      appBar: AppBar(),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
@@ -64,13 +62,8 @@ class _CategoryDetailScreenState extends State<CategoryDetailScreen> {
                                 return const Text(
                                     'از اتصال دستگاه خود به اینترنت اطمینان حاصل شوید.');
                               } else {
-                                return Center(
-                                  child: CircularProgressIndicator(
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .copyWith()
-                                        .secondary,
-                                  ),
+                                return const Center(
+                                  child: CircularProgressIndicator(),
                                 );
                               }
                             }),
@@ -94,14 +87,17 @@ class _CategoryDetailScreenState extends State<CategoryDetailScreen> {
                                   )),
                               itemCount: snapshot.data!.ONLINE_MP3.length,
                               itemBuilder: (context, index) {
-                                return ItemSong(
-                                  songName: snapshot
-                                      .data!.ONLINE_MP3[index].mp3_title,
-                                  artistName: snapshot
-                                      .data!.ONLINE_MP3[index].mp3_artist,
-                                  image: snapshot.data!.ONLINE_MP3[index]
-                                      .mp3_thumbnail_b,
-                                  songId: snapshot.data!.ONLINE_MP3[index].id,
+                                return GestureDetector(
+                                  child: ItemSong(
+                                    songName: snapshot
+                                        .data!.ONLINE_MP3[index].mp3_title,
+                                    artistName: snapshot
+                                        .data!.ONLINE_MP3[index].mp3_artist,
+                                    image: snapshot.data!.ONLINE_MP3[index]
+                                        .mp3_thumbnail_b,
+                                    songId: snapshot.data!.ONLINE_MP3[index].id,
+                                  ),
+                                  onTap: () {},
                                 );
                               },
                             ),
@@ -110,14 +106,8 @@ class _CategoryDetailScreenState extends State<CategoryDetailScreen> {
                           return const Text(
                               'از اتصال دستگاه خود به اینترنت اطمینان حاصل شوید.');
                         } else {
-                          return Center(
-                            child: CircularProgressIndicator(
-                              color: Theme.of(context)
-                                  .colorScheme
-                                  .copyWith()
-                                  .secondary,
-                            ),
-                          );
+                          return const Center(
+                              child: CircularProgressIndicator());
                         }
                       }),
                 ],

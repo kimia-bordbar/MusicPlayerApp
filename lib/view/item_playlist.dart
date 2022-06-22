@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:music_player/screens/playlist_detail_screen.dart';
 
 class ItemPlayList extends StatelessWidget {
-  final String playListId;
   final String playListName;
   final String image;
   const ItemPlayList({
     Key? key,
-    required this.playListId,
     required this.playListName,
     required this.image,
   }) : super(key: key);
@@ -18,14 +14,15 @@ class ItemPlayList extends StatelessWidget {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: GestureDetector(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15.0),
-            ),
-            height: 100,
-            width: double.infinity,
+        child: Container(
+          decoration: BoxDecoration(
+            // color: Theme.of(context).colorScheme.copyWith().secondary,
+            borderRadius: BorderRadius.circular(15.0),
+          ),
+          height: 100,
+          width: double.infinity,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
             child: Row(
               children: [
                 ClipRRect(
@@ -39,7 +36,7 @@ class ItemPlayList extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(
-                  width: 20,
+                  width: 10,
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -50,7 +47,7 @@ class ItemPlayList extends StatelessWidget {
                         playListName,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
-                        style: Theme.of(context).textTheme.copyWith().headline6,
+                        style: Theme.of(context).textTheme.copyWith().headline4,
                       ),
                     ),
                   ],
@@ -59,14 +56,7 @@ class ItemPlayList extends StatelessWidget {
             ),
           ),
         ),
-        onTap: () {
-          Get.to(
-            () => PlaylistDetailScreen(
-              playlistId: playListId,
-              playlistName: playListName,
-            ),
-          );
-        },
+        onTap: () {},
       ),
     );
   }

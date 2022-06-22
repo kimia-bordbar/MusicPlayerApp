@@ -63,7 +63,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     icon: const Icon(Icons.search),
                     onPressed: () {
                       setState(() {
-                        getSearchSong = client.getSearchSongs(controller.text);
+                        getSearchSong = client.getSearchSong(controller.text);
                       });
                     },
                   ),
@@ -73,7 +73,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     onPressed: () {
                       setState(() {
                         controller.text = '';
-                        getSearchSong = client.getSearchSongs('search');
+                        getSearchSong = client.getSearchSong('search');
                       });
                     },
                   ),

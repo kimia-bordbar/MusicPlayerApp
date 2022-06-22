@@ -1,8 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:music_player/api/rest_client.dart';
 import 'package:music_player/models/category_base_model.dart';
 import 'package:music_player/view/item_category_gridview.dart';
+import 'package:music_player/view/item_gridview.dart';
 
 class CategoryScreen extends StatefulWidget {
   const CategoryScreen({Key? key}) : super(key: key);
@@ -50,11 +52,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                 return const Text(
                     'از اتصال دستگاه خود به اینترنت اطمینان حاصل شوید.');
               } else {
-                return Center(
-                  child: CircularProgressIndicator(
-                    color: Theme.of(context).colorScheme.copyWith().secondary,
-                  ),
-                );
+                return const Center(child: CircularProgressIndicator());
               }
             }),
       ),
